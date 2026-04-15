@@ -8,7 +8,8 @@ int main(void) {
     std::vector<int> topo = {2, 4, 1};
     NeuralNetwork Net2(topo);
 
-    for (auto& t: Net2.topology) {
-        std::cout << t << "\n";
+    for (auto& c: Net2.chromosome) {
+        std::cout << c << "  ";
     }
+    std::cout << "\n";
 }

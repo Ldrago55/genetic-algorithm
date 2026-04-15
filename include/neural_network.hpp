@@ -17,6 +17,11 @@ public:
     NeuralNetwork();
     NeuralNetwork(const std::vector<int>& topology);
 
+    // ---- Functions ----
+
+    // Randomize weights & biases (Chromosome)
+    void randomizeChromosome();
+
 private:
     std::mt19937 rng;
 };

@@ -31,4 +31,17 @@ NeuralNetwork::NeuralNetwork(const std::vector<int>& topo) {
     }
     // Resize the chromosome to the no. of genes
     chromosome.resize(totalGene, 0.0f);
+    // Randomize weights & biases (Chromosome)
+    randomizeChromosome();
+}
+
+// ---- Functions ----
+
+// Randomize weights & biases (Chromosome)
+void NeuralNetwork::randomizeChromosome() {
+    // Initialize Uniform Real Distribution
+    std::uniform_real_distribution<float> dist(-1.0f, 1.0f);
+    for (auto& chr : chromosome) {
+        chr = dist(rng);
+    }
 }
