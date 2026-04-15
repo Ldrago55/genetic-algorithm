@@ -1,6 +1,7 @@
 #ifndef NEURAL_NETWORK_H
 #define NEURAL_NETWORK_H
 
+#include <random>
 #include <vector>
 
 class NeuralNetwork {
@@ -16,6 +17,8 @@ public:
     NeuralNetwork();
     NeuralNetwork(const std::vector<int>& topology);
 
+private:
+    std::mt19937 rng;
 };
 
 #endif
