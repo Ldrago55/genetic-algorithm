@@ -1,0 +1,35 @@
+[
+  {
+    "file": "src/neural_network.cpp",
+    "arguments": [
+      "g++",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-g",
+      "-O0",
+      "-c",
+      "src/neural_network.cpp",
+      "-o",
+      "build/neural_network.o"
+    ],
+    "directory": "/home/kenny/code/c/genetic-algorithm",
+    "output": "build/neural_network.o"
+  },
+  {
+    "file": "src/main.cpp",
+    "arguments": [
+      "g++",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-g",
+      "-O0",
+      "src/main.cpp",
+      "-o",
+      "build/main"
+    ],
+    "directory": "/home/kenny/code/c/genetic-algorithm",
+    "output": "build/main"
+  }
+]

@@ -19,12 +19,14 @@ BUILD_DIR = build
 # $?: Prerequisites newer than the target
 
 all: $(BUILD_DIR)/main
-	./$(BUILD_DIR)/main
 
-$(BUILD_DIR)/main: $(SRC_DIR)/main.cpp
-	$(CC) $(CXXFLAGS) $< -o $@
+$(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o
+	$(CC) $(CXXFLAGS) $^ -o $@
+
+$(BUILD_DIR)/neural_network.o : $(SRC_DIR)/neural_network.cpp $(INCLUDE_DIR)/neural_network.hpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f build/*
+	rm -f $(BUILD_DIR)/*
 
 .PHONY: all clean
