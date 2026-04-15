@@ -26,6 +26,9 @@ public:
 
 private:
     std::mt19937 rng;
+    // ---- Functions ----
+    // RELU Activation function
+    float reLU(float x);
 };
 
 #endif

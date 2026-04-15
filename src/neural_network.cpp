@@ -51,3 +51,8 @@ int NeuralNetwork::getTotalGenes() const {
     int totalGenes = chromosome.size();
     return totalGenes;
 }
+
+// RELU Activation function
+float NeuralNetwork::reLU(float x) {
+    return (0.0f < x) ? x : 0.0f;
+}
