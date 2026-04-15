@@ -9,8 +9,20 @@ public:
     // Architecture: ex: {4, 6, 2}    4 inp -> 6 hidden -> 2 output
     std::vector<int> topology;
 
-    // All weights & biases stored in a flat vector
+    /* All weights & biases stored in a flat vector
+    6*[4w, 1b]  + 2*[6w, 1b]
+        30    +     14   = 44 -> total size
+    */
     std::vector<float> chromosome;
+
+    /*Cache for layer outputs during forward pass -- for {4, 6, 2}
+        [
+            [_, _, _, _],
+            [_, _, _, _, _, _],
+            [_, _]
+        ]
+    */
+    std::vector<std::vector<float>> layers;
 
 
     // Constructors
