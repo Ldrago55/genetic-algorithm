@@ -23,14 +23,14 @@ NeuralNetwork::NeuralNetwork(const std::vector<int>& topo) {
     For each layer connection (layer i to layer i+1):
         total_W_&_B = (input * output) + bias_of_output
     */
-    int totalGene = 0;
+    int totalGenes = 0;
     for (size_t i = 0; i < topology.size() - 1; i++) {
         int inputs = topology[i];
         int outputs = topology[i + 1];
-        totalGene += (inputs * outputs) + outputs; // weights + biases
+        totalGenes += (inputs * outputs) + outputs; // weights + biases
     }
     // Resize the chromosome to the no. of genes
-    chromosome.resize(totalGene, 0.0f);
+    chromosome.resize(totalGenes, 0.0f);
     // Randomize weights & biases (Chromosome)
     randomizeChromosome();
 }
@@ -44,4 +44,10 @@ void NeuralNetwork::randomizeChromosome() {
     for (auto& chr : chromosome) {
         chr = dist(rng);
     }
+}
+
+// Get Total Genes
+int NeuralNetwork::getTotalGenes() const {
+    int totalGenes = chromosome.size();
+    return totalGenes;
 }

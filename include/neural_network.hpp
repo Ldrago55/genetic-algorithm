@@ -21,6 +21,8 @@ public:
 
     // Randomize weights & biases (Chromosome)
     void randomizeChromosome();
+    // Get total Genes
+    int getTotalGenes() const; // will NOT modify the object
 
 private:
     std::mt19937 rng;

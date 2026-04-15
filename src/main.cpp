@@ -12,4 +12,6 @@ int main(void) {
         std::cout << c << "  ";
     }
     std::cout << "\n";
+
+    std::cout << "Total Genes: " << Net2.getTotalGenes() << "\n";
 }
