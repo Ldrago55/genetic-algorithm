@@ -33,6 +33,11 @@ public:
     // Forward Pass
     std::vector<float> feedForward(const std::vector<float>& inputs);
 
+    // Mutation
+    void mutate(float mutationRate, float mutationStrength);
+    // Crossover
+    static NeuralNetwork crossover(const NeuralNetwork& A, const NeuralNetwork& B);
+
     // Randomize weights & biases (Chromosome)
     void randomizeChromosome();
     // Get total Genes

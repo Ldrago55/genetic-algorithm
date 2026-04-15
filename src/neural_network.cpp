@@ -103,6 +103,40 @@ int NeuralNetwork::getTotalGenes() const {
     return totalGenes;
 }
 
+// Mutate the chromosome
+void NeuralNetwork::mutate(float mutationRate, float mutationStrength) {
+    std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+    std::normal_distribution<float> normalDist(0.0f, mutationStrength);
+
+    for (auto& gene: chromosome) {
+        if (dist(rng) < mutationRate) {
+            // Add Gaussian/Normal noise to the Gene
+            gene += normalDist(rng);
+        }
+    }
+}
+
+
+// Crossover 2 chromosome
+NeuralNetwork NeuralNetwork::crossover(const NeuralNetwork& parnetA, const NeuralNetwork& parentB) {
+    // Uniform int distribution [0, 1]
+    std::uniform_int_distribution<int> dist(0, 1);
+
+    // Construct child NN with any parent's topology
+    NeuralNetwork child(parnetA.topology);
+
+    // Uniform crossover: for each gene, randomly pick from parentA or parentB
+    for (int i = 0; i < parnetA.getTotalGenes(); i++) {
+        if (dist(child.rng) == 0) {
+            child.chromosome[i] = parnetA.chromosome[i];
+        } else {
+            child.chromosome[i] = parentB.chromosome[i];
+        }
+    }
+
+    return child;
+}
+
 // RELU Activation function
 float NeuralNetwork::reLU(float x) {
     return (0.0f < x) ? x : 0.0f;
