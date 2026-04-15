@@ -10,7 +10,7 @@ public:
     std::vector<int> topology;
 
     // All weights & biases stored in a flat vector
-    std::vector<float> chromosomes;
+    std::vector<float> chromosome;
 
 
     // Constructors

@@ -1,4 +1,5 @@
 #include "neural_network.hpp"
+#include <cstddef>
 #include <random>
 #include <vector>
 
@@ -16,4 +17,18 @@ NeuralNetwork::NeuralNetwork(const std::vector<int>& topo) {
     // Initialize random number generator
     std::random_device rd; 
     rng.seed(rd());
+
+    
+    /*Calculate total Genes needed
+    For each layer connection (layer i to layer i+1):
+        total_W_&_B = (input * output) + bias_of_output
+    */
+    int totalGene = 0;
+    for (size_t i = 0; i < topology.size() - 1; i++) {
+        int inputs = topology[i];
+        int outputs = topology[i + 1];
+        totalGene += (inputs * outputs) + outputs; // weights + biases
+    }
+    // Resize the chromosome to the no. of genes
+    chromosome.resize(totalGene, 0.0f);
 }
