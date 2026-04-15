@@ -14,4 +14,13 @@ int main(void) {
     std::cout << "\n";
 
     std::cout << "Total Genes: " << Net2.getTotalGenes() << "\n";
+
+    std::vector<float> inputs = {3, 4};
+    std::vector<float> outputs = Net2.feedForward(inputs);
+    std::cout << "Output: ";
+    for (auto& o: outputs) {
+        std::cout << o << "  ";
+    }
+    std::cout << "\n";
+
 }

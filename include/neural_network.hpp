@@ -20,8 +20,7 @@ public:
             [_, _, _, _],
             [_, _, _, _, _, _],
             [_, _]
-        ]
-    */
+        ]          */
     std::vector<std::vector<float>> layers;
 
 
@@ -30,6 +29,9 @@ public:
     NeuralNetwork(const std::vector<int>& topology);
 
     // ---- Functions ----
+
+    // Forward Pass
+    std::vector<float> feedForward(const std::vector<float>& inputs);
 
     // Randomize weights & biases (Chromosome)
     void randomizeChromosome();
