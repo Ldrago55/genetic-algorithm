@@ -43,6 +43,8 @@ private:
     // ---- Functions ----
     // RELU Activation function
     float reLU(float x);
+    // TanH Activation function
+    float tanhActivation(float x);
 };
 
 #endif

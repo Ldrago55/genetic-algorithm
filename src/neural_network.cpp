@@ -1,4 +1,5 @@
 #include "neural_network.hpp"
+#include <cmath>
 #include <cstddef>
 #include <iostream>
 #include <random>
@@ -79,7 +80,7 @@ std::vector<float> NeuralNetwork::feedForward(const std::vector<float>& inputs) 
             chromosomeIdx++;
 
             // Apply activation function & store in layers[next_layer][j_iterates]
-            layers[i+1][j] = reLU(sum);
+            layers[i+1][j] = tanhActivation(sum);
         }
     }
 
@@ -105,4 +106,9 @@ int NeuralNetwork::getTotalGenes() const {
 // RELU Activation function
 float NeuralNetwork::reLU(float x) {
     return (0.0f < x) ? x : 0.0f;
+}
+
+// TanH activation function
+float NeuralNetwork::tanhActivation(float x) {
+    return std::tanh(x);
 }
