@@ -31,7 +31,7 @@ public:
     Agent(const std::vector<int>& topology);
     
     void update();
-    void draw(Color color);
+    void draw(Color color) const;
     void think(const std::vector<float>& inputs);
     
     // Calculate fitness based on movement/survival

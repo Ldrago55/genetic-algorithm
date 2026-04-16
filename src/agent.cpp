@@ -32,7 +32,7 @@ void Agent::update() {
     fitness += 1.0f;
 }
 
-void Agent::draw(Color color) {
+void Agent::draw(Color color) const {
     if (isDead) {
         DrawCircleV(position, radius, ColorAlpha(color, 0.3f));
         return;
