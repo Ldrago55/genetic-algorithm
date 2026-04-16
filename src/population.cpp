@@ -2,9 +2,10 @@
 #include <algorithm>
 #include <iostream>
 
-Population::Population(int size, const std::vector<int>& nnTopology) 
+Population::Population(int size, const std::vector<int>& nnTopology, int maxIter) 
     : populationSize(size), generation(1), bestFitness(0), maxSteps(1000), 
       mutationRate(0.1f), mutationStrength(0.5f), elitismCount(2),
+      maxIterations(maxIter), currentIteration(0),
       rng(std::random_device{}()) {
     
     // Initialize agents
@@ -27,6 +28,8 @@ void Population::update(Environment& env) {
             bestFitness = agent.fitness;
         }
     }
+    // Increment iteration
+    currentIteration++;
 }
 
 void Population::draw() const {
@@ -49,6 +52,9 @@ void Population::nextGeneration() {
     std::cout << "Generation: " << generation 
               << " | Best Fitness: " << bestFitness << std::endl;
 
+    // Set current Iteration to 0
+    currentIteration = 0;
+    
     // 1. Sort agents by fitness (descending)
     sortAgentsByFitness();
 
@@ -133,4 +139,8 @@ void Population::sortAgentsByFitness() {
     std::sort(agents.begin(), agents.end(), [](const Agent& a, const Agent& b) {
         return a.fitness > b.fitness;
     });
+}
+
+bool Population::hasReachedMaxIterations() const {
+    return currentIteration >= maxIterations;
 }

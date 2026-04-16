@@ -1,6 +1,7 @@
 #include "environment.hpp"
 #include <algorithm>
 #include <cmath>
+#include <raylib.h>
 
 Environment::Environment(int w, int h) : width(w), height(h) {
     createBoxRoom();
@@ -30,7 +31,7 @@ void Environment::addWall(Vector2 start, Vector2 end) {
 void Environment::draw() const {
     // Draw Walls
     for (const auto& wall : walls) {
-        DrawLineV(wall.start, wall.end, WHITE);
+        DrawLineV(wall.start, wall.end, BLACK);
     }
 }
 

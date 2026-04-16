@@ -13,13 +13,16 @@ public:
     int generation;
     float bestFitness;
     float maxSteps; // Max steps per generation to prevent infinite loops
+
+    int maxIterations;  // Maximum iteration allowed
+    int currentIteration;  // Current iteration count
     
     // GA Parameters
     float mutationRate;
     float mutationStrength;
     int elitismCount; // Number of top agents to carry over directly
 
-    Population(int size, const std::vector<int>& nnTopology);
+    Population(int size, const std::vector<int>& nnTopology, int maxIter);
     
     void update(Environment& env);
     void draw() const;
@@ -29,6 +32,8 @@ public:
     
     // Create next generation
     void nextGeneration();
+
+    bool hasReachedMaxIterations() const;
 
 private:
     std::mt19937 rng;
