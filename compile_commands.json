@@ -51,6 +51,23 @@
     "output": "build/environment.o"
   },
   {
+    "file": "src/population.cpp",
+    "arguments": [
+      "g++",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-g",
+      "-O0",
+      "-c",
+      "src/population.cpp",
+      "-o",
+      "build/population.o"
+    ],
+    "directory": "/home/kenny/code/c/genetic-algorithm",
+    "output": "build/population.o"
+  },
+  {
     "file": "src/main.cpp",
     "arguments": [
       "g++",

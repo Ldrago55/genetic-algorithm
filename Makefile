@@ -20,7 +20,7 @@ BUILD_DIR = build
 
 all: $(BUILD_DIR)/main
 
-$(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o $(BUILD_DIR)/agent.o $(BUILD_DIR)/environment.o
+$(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o $(BUILD_DIR)/agent.o $(BUILD_DIR)/environment.o $(BUILD_DIR)/population.o
 	$(CC) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
 
 
@@ -28,6 +28,9 @@ $(BUILD_DIR)/agent.o : $(SRC_DIR)/agent.cpp $(INCLUDE_DIR)/agent.hpp
 	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/environment.o : $(SRC_DIR)/environment.cpp $(INCLUDE_DIR)/environment.hpp
+	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/population.o : $(SRC_DIR)/population.cpp $(INCLUDE_DIR)/population.hpp
 	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/neural_network.o : $(SRC_DIR)/neural_network.cpp $(INCLUDE_DIR)/neural_network.hpp
