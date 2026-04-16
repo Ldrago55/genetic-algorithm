@@ -34,6 +34,23 @@
     "output": "build/agent.o"
   },
   {
+    "file": "src/environment.cpp",
+    "arguments": [
+      "g++",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-g",
+      "-O0",
+      "-c",
+      "src/environment.cpp",
+      "-o",
+      "build/environment.o"
+    ],
+    "directory": "/home/kenny/code/c/genetic-algorithm",
+    "output": "build/environment.o"
+  },
+  {
     "file": "src/main.cpp",
     "arguments": [
       "g++",
