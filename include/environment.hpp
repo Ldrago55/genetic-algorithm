@@ -38,6 +38,8 @@ private:
     // Check if two line segments intersect
     // Returns true if they intersect, and sets interX/interY to the point
     bool getIntersection(Line l1, Line l2, float& interX, float& interY) const;
+
+    float getDistanceToSegment(Vector2 p, Vector2 a, Vector2 b) const ;
 };
 
 #endif // ENVIRONMENT_H
