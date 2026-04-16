@@ -14,7 +14,7 @@ int main() {
     Environment env(screenWidth, screenHeight);
     
     int popSize = 50;
-    int maxIter = 200;
+    int maxIter = 1000;
     Population pop(popSize, nnTopology, maxIter);
 
     // Main Game Loop

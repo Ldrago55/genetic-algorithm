@@ -4,16 +4,18 @@
 
 Population::Population(int size, const std::vector<int>& nnTopology, int maxIter) 
     : populationSize(size), generation(1), bestFitness(0), maxSteps(1000), 
-      mutationRate(0.1f), mutationStrength(0.5f), elitismCount(2),
-      maxIterations(maxIter), currentIteration(0),
+      maxIterations(maxIter), currentIteration(0), mutationRate(0.1f),
+      mutationStrength(0.5f), elitismCount(2),
       rng(std::random_device{}()) {
     
     // Initialize agents
     for (int i = 0; i < populationSize; ++i) {
         agents.emplace_back(nnTopology);
         // Randomize start position slightly to avoid identical behavior
-        agents[i].position.x = 100.0f;
-        agents[i].position.y = 100.0f + (i * 5.0f); 
+        std::uniform_real_distribution<float> offset(-20.0f, 20.0f);
+        // agents[i].position.x = 100.0f;
+        agents[i].position.x = 200.0f + offset(rng);
+        agents[i].position.y = 100.0f + offset(rng);
         agents[i].angle = 0.0f;
     }
 }
