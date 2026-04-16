@@ -1,6 +1,6 @@
 CC = g++
 CXXFLAGS = -Wall -Wextra -I$(INCLUDE_DIR)
-LDFLAGS = 
+LDFLAGS = -lraylib -lGL -lpthread -ldl -lrt -lX11
 
 DEBUG = 1
 ifeq ($(DEBUG), 1)
@@ -21,14 +21,14 @@ BUILD_DIR = build
 all: $(BUILD_DIR)/main
 
 $(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o $(BUILD_DIR)/agent.o
-	$(CC) $(CXXFLAGS) $^ -o $@
+	$(CC) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
 
 
 $(BUILD_DIR)/agent.o : $(SRC_DIR)/agent.cpp $(INCLUDE_DIR)/agent.hpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/neural_network.o : $(SRC_DIR)/neural_network.cpp $(INCLUDE_DIR)/neural_network.hpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(BUILD_DIR)/*
