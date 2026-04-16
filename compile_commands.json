@@ -17,6 +17,23 @@
     "output": "build/neural_network.o"
   },
   {
+    "file": "src/agent.cpp",
+    "arguments": [
+      "g++",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-g",
+      "-O0",
+      "-c",
+      "src/agent.cpp",
+      "-o",
+      "build/agent.o"
+    ],
+    "directory": "/home/kenny/code/c/genetic-algorithm",
+    "output": "build/agent.o"
+  },
+  {
     "file": "src/main.cpp",
     "arguments": [
       "g++",
