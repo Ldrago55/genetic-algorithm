@@ -35,6 +35,9 @@ int main(void) {
         // add camera control
         UpdateCamera(&camera, CAMERA_FIRST_PERSON);
 
+        // updadte the population
+        popu.update();
+
         BeginDrawing();
         ClearBackground(WHITE);
 
