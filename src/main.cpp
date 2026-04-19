@@ -20,6 +20,7 @@ int main(void) {
 
     // reset the population
     popu.reset();
+    int generation = 0;
 
 
     InitWindow(800, 600, "GA");
@@ -35,11 +36,6 @@ int main(void) {
 
     SetTargetFPS(30);
 
-    // std::cout << "the chromosome is: ";
-    // for (auto& i : popu.population[0].brain.chromosome) {
-    //     std::cout << i << " ";
-    // }
-    // std::cout << "\n";
 
     while (!WindowShouldClose()) {
         // add camera control
@@ -54,8 +50,9 @@ int main(void) {
             popu.evolve();  // evolve the population
             popu.reset();  // reset the population
             step = 0;
+            generation++;
 
-            std::cout << "New Generation.\n";
+            std::cout << "Generation: " << generation << "\n";
         }
 
         BeginDrawing();
@@ -87,6 +84,8 @@ int main(void) {
         }
 
         EndMode3D();
+
+        DrawText(TextFormat("Generation: %d", generation), 5, 5, 20, BLACK);
 
         EndDrawing();
     }
