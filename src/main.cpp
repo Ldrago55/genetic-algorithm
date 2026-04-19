@@ -31,6 +31,12 @@ int main(void) {
 
     SetTargetFPS(30);
 
+    std::cout << "the chromosome is: ";
+    for (auto& i : popu.population[0].brain.chromosome) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+
     while (!WindowShouldClose()) {
         // add camera control
         UpdateCamera(&camera, CAMERA_FIRST_PERSON);
