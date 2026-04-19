@@ -1,47 +1,48 @@
 #include <iostream>
 #include <vector>
 #include "neural_network.hpp"
+#include "raylib.h"
 
 int main(void) {
+    InitWindow(800, 600, "GA");
 
-    std::vector<int> topo = {2, 4, 1};
-    NeuralNetwork Net1(topo);
-    NeuralNetwork Net2(topo);
+    // initialize camera
+    Camera3D camera = {
+        {0, 2, 10},
+        {0, 0, 0},
+        {0, 1, 0},
+        60.0f,
+        CAMERA_PERSPECTIVE
+    };
 
-    std::cout << "Net 1:  ";
-    for (auto& c: Net1.chromosome) {
-        std::cout << c << "  ";
+    SetTargetFPS(30);
+
+    while (!WindowShouldClose()) {
+        // add camera control
+        UpdateCamera(&camera, CAMERA_FIRST_PERSON);
+
+        BeginDrawing();
+        ClearBackground(WHITE);
+
+        BeginMode3D(camera);
+
+        // draw a plane
+        DrawPlane(
+            {0, 0, 0}, 
+            {10, 10}, 
+            GREEN
+        );
+
+        // draw a cube
+        DrawCube(
+            {0, 0, 0}, 
+            2.0f, 2.0f, 2.0f, 
+            RED
+        );
+
+        EndMode3D();
+
+        EndDrawing();
     }
-    std::cout << "\n";
-
-    std::cout << "Net 2:  ";
-    for (auto& c: Net2.chromosome) {
-        std::cout << c << "  ";
-    }
-    std::cout << "\n";
-
-    std::cout << "Total Genes: " << Net2.getTotalGenes() << "\n";
-
-    // std::vector<float> inputs = {3, 4};
-    // std::vector<float> outputs = Net2.feedForward(inputs);
-    // std::cout << "Output: ";
-    // for (auto& o: outputs) {
-    //     std::cout << o << "  ";
-    // }
-    // std::cout << "\n";
-
-    NeuralNetwork child = NeuralNetwork::crossover(Net1, Net2);
-    std::cout << "Child:  ";
-    for (auto& c: child.chromosome) {
-        std::cout << c << "  ";
-    }
-    std::cout << "\n";
-
-    child.mutate(0.1, 0.5);
-    std::cout << "Child:  ";
-    for (auto& c: child.chromosome) {
-        std::cout << c << "  ";
-    }
-    std::cout << "\n";
-
+    return 0;
 }
