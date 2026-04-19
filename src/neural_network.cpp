@@ -80,7 +80,12 @@ std::vector<float> NeuralNetwork::feedForward(const std::vector<float>& inputs) 
             chromosomeIdx++;
 
             // Apply activation function & store in layers[next_layer][j_iterates]
-            layers[i+1][j] = tanhActivation(sum);
+            // (bias added based on hidden<relu> & output<tanh>)
+            if (i < topology.size() - 2) {
+                layers[i+1][j] = reLU(sum);
+            } else {
+                layers[i+1][j] = tanhActivation(sum);
+            }
         }
     }
 
