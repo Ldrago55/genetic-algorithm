@@ -17,4 +17,5 @@ public:
 
     void update(); // runs Simulation step
     void reset();
+    void evolve();
 };

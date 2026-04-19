@@ -118,17 +118,17 @@ void NeuralNetwork::mutate(float mutationRate, float mutationStrength) {
 
 
 // Crossover 2 chromosome
-NeuralNetwork NeuralNetwork::crossover(const NeuralNetwork& parnetA, const NeuralNetwork& parentB) {
+NeuralNetwork NeuralNetwork::crossover(const NeuralNetwork& parentA, const NeuralNetwork& parentB) {
     // Uniform int distribution [0, 1]
     std::uniform_int_distribution<int> dist(0, 1);
 
     // Construct child NN with any parent's topology
-    NeuralNetwork child(parnetA.topology);
+    NeuralNetwork child(parentA.topology);
 
     // Uniform crossover: for each gene, randomly pick from parentA or parentB
-    for (int i = 0; i < parnetA.getTotalGenes(); i++) {
+    for (int i = 0; i < parentA.getTotalGenes(); i++) {
         if (dist(child.rng) == 0) {
-            child.chromosome[i] = parnetA.chromosome[i];
+            child.chromosome[i] = parentA.chromosome[i];
         } else {
             child.chromosome[i] = parentB.chromosome[i];
         }
