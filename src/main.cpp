@@ -8,6 +8,10 @@
 #define POPU_NUM 5
 
 int main(void) {
+    // variable to handle simulation step
+    int step = 0;
+    const int MAX_STEPS = 200;
+
     // Initialize environment
     Environment env = Environment();
 
@@ -44,6 +48,16 @@ int main(void) {
 
         // updadte the population
         popu.update();
+        step++;
+
+        // check if generation ends
+        if (step >= MAX_STEPS) {
+            popu.evolve();  // evolve the population
+            popu.reset();  // reset the population
+            step = 0;
+
+            std::cout << "New Generation.\n";
+        }
 
         BeginDrawing();
         ClearBackground(WHITE);

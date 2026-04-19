@@ -65,6 +65,8 @@ void PopulationManager::evolve() {
 
         // push the child to new population
         newPopulation.push_back(child);
-
     }
+
+    // set population to new population
+    population = newPopulation;
 }
