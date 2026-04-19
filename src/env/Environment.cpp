@@ -24,7 +24,7 @@ Vector3 Environment::getTarget() {
 }
 
 float Environment::calculateFitness(Vector3& agentPos) {
-    float distance = std::sqrt(
+    float distance = - std::sqrt(
         pow((agentPos.x - target.x), 2) +
         pow((agentPos.y - target.y), 2) +
         pow((agentPos.z - target.z), 2)
