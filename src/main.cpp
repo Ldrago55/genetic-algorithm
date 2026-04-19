@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include "neural_network.hpp"
 #include "raylib.h"
 #include "population/populationManager.h"
 #include "env/Environment.h"
@@ -16,7 +15,7 @@ int main(void) {
     Environment env = Environment();
 
     // Initialize population
-    std::vector<int> topology = {6, 4, 2};
+    std::vector<int> topology = {6, 8, 8, 2};
     PopulationManager popu = PopulationManager(&env, POPU_NUM, topology);
 
     // reset the population

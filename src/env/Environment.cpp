@@ -16,7 +16,7 @@ State Environment::getState(const Vector3& agentPos) {
 void Environment::applyAction(Vector3& agentPos, Action& action) {
     // apply the action to agent
     agentPos.x += action.moveX;  // modifying agent position
-    agentPos.z += action.moveX;
+    agentPos.z += action.moveZ;
 }
 
 Vector3 Environment::getTarget() {
