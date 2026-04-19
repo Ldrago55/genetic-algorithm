@@ -34,7 +34,7 @@ void PopulationManager::update() {
 void PopulationManager::reset() {
     // init every agent with i, 1, 0 position
     for (int i = 0; i < popSize; i++) {
-        population[i].position = {(float)i, 1, 0};
+        population[i].position = {-10, 1, 0};
     }
 }
 

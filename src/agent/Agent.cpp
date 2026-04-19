@@ -2,6 +2,7 @@
 #include "neural_network.hpp"
 #include <raylib.h>
 #include <vector>
+#include <iostream>
 
 
 // Constructor
@@ -33,6 +34,7 @@ Action Agent::decide(const State& state) {
 
     // Take action using NN(GA)
     std::vector<float> output = brain.feedForward(s);
+    // std::cout << output[0] << " " << output[1] << "\n";
 
     // assign output to action
     action.moveX = output[0];
