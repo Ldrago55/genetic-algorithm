@@ -1,6 +1,7 @@
 #include "Agent.h"
 #include "neural_network.hpp"
 #include <raylib.h>
+#include <vector>
 
 
 // Constructor
@@ -18,9 +19,22 @@ Agent::Agent(Vector3 pos, const NeuralNetwork& nn) {
 Action Agent::decide(const State& state) {
     Action action;
 
-    // Take action using NN(GA)
-    
+    // convert state into usable form (straight 1D array)
+    std::vector<float> s = {
+        state.agentPos.x, 
+        state.agentPos.y, 
+        state.agentPos.z, 
+        state.targetPos.x,
+        state.targetPos.y,
+        state.targetPos.z,
+    };
 
+    // Take action using NN(GA)
+    std::vector<float> output = brain.feedForward(s);
+
+    // assign output to action
+    action.moveX = output[0];
+    action.moveZ = output[1];
 
     return action;
 }
