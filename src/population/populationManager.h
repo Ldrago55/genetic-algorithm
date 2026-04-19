@@ -13,7 +13,7 @@ public:
     int popSize;
     std::vector<Agent> population;
 
-    PopulationManager(Environment* environment, int populationSize);
+    PopulationManager(Environment* environment, int populationSize, const std::vector<int>& topo);
 
     void update(); // runs Simulation step
     void reset();

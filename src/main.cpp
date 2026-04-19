@@ -12,7 +12,8 @@ int main(void) {
     Environment env = Environment();
 
     // Initialize population
-    PopulationManager popu = PopulationManager(&env, POPU_NUM);
+    std::vector<int> topology = {6, 4, 2};
+    PopulationManager popu = PopulationManager(&env, POPU_NUM, topology);
 
     // reset the population
     popu.reset();

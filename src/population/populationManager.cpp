@@ -1,10 +1,14 @@
 #include "populationManager.h"
+#include "neural_network.hpp"
 
-PopulationManager::PopulationManager(Environment* environment, int populationSize) {
+PopulationManager::PopulationManager(Environment* environment, int populationSize, const std::vector<int>& topo) {
     env = environment;
     popSize = populationSize;
 
     population.resize(populationSize);
+    for (auto& agent : population) {
+        agent.brain = NeuralNetwork(topo);
+    }
 }
 
 void PopulationManager::update() {
