@@ -9,6 +9,7 @@ class Agent {
 public:
     Vector3 position;
     NeuralNetwork brain;
+    float fitness;
 
     Agent();
     Agent(Vector3 pos, const NeuralNetwork& nn);

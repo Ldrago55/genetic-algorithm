@@ -21,6 +21,9 @@ void PopulationManager::update() {
 
         // environment applies movement
         env->applyAction(population[i].position, a);
+
+        // calculate fitness of agent
+        population[i].fitness = env->calculateFitness(population[i].position);
     }
 }
 

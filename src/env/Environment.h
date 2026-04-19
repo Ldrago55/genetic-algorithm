@@ -13,6 +13,7 @@ public:
 
     State getState(const Vector3& agentPos);
     void applyAction(Vector3& agentPos, Action& action);
+    float calculateFitness(Vector3& agentPos);
 
     Vector3 getTarget();
 };
