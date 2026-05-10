@@ -5,15 +5,15 @@
 
 // Constructor
 Agent::Agent() {
-    Vector3 position = {0, 1, 0};
+    position = {0, 1, 0};
     NeuralNetwork brain = NeuralNetwork();
-    float fitness = 0;
+    fitness = 0;
 }
 
 Agent::Agent(Vector3 pos, const NeuralNetwork& nn) {
-    Vector3 position = pos;
+    position = pos;
     NeuralNetwork brain = nn;
-    float fitness = 0;
+    fitness = 0;
 }
 
 
