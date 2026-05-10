@@ -23,7 +23,7 @@ all: $(BUILD_DIR)/main
 $(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o $(BUILD_DIR)/Agent.o $(BUILD_DIR)/populationManager.o $(BUILD_DIR)/Environment.o
 	$(CC) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
 
-$(BUILD_DIR)/neural_network.o : $(SRC_DIR)/neural_network.cpp $(INCLUDE_DIR)/neural_network.hpp
+$(BUILD_DIR)/neural_network.o : $(SRC_DIR)/nn/neural_network.cpp $(SRC_DIR)/nn/neural_network.hpp
 	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/Agent.o : $(SRC_DIR)/agent/Agent.cpp $(SRC_DIR)/agent/Agent.h

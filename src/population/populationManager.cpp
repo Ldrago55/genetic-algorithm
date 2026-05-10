@@ -1,5 +1,4 @@
 #include "populationManager.h"
-#include "neural_network.hpp"
 #include <algorithm>
 #include <cstdlib>
 #include <vector>

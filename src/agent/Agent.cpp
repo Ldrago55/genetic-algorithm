@@ -1,8 +1,6 @@
 #include "Agent.h"
-#include "neural_network.hpp"
 #include <raylib.h>
 #include <vector>
-#include <iostream>
 
 
 // Constructor

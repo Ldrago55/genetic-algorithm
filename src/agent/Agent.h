@@ -2,7 +2,7 @@
 
 #include "../core/State.h"
 #include "../core/Action.h"
-#include "neural_network.hpp"
+#include "../nn/neural_network.hpp"
 #include <raylib.h>
 
 class Agent {
