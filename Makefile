@@ -18,7 +18,7 @@ BUILD_DIR = build
 # $^: All prerequisites
 # $?: Prerequisites newer than the target
 
-all: $(BUILD_DIR)/main
+all: $(BUILD_DIR) $(BUILD_DIR)/main
 
 $(BUILD_DIR)/main: $(SRC_DIR)/main.cpp $(BUILD_DIR)/neural_network.o $(BUILD_DIR)/Agent.o $(BUILD_DIR)/populationManager.o $(BUILD_DIR)/Environment.o
 	$(CC) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
@@ -36,8 +36,10 @@ $(BUILD_DIR)/populationManager.o : $(SRC_DIR)/population/populationManager.cpp $
 	$(CC) $(CXXFLAGS) $(LDFLAGS) -c $< -o $@
 
 
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
 clean:
-	rm -f $(BUILD_DIR)/*
+	rm -rf $(BUILD_DIR)
 
-.PHONY: all clean
+.PHONY: all clean $(BUILD_DIR)
