@@ -6,6 +6,11 @@ A simple 3D simulation of genetic algorithm where agents evolve their brain (neu
 
 ---
 
+## Demo
+[demo video](https://github.com/user-attachments/assets/4bf6be1c-eb6b-48f7-b812-52694a87133f)
+
+---
+
 ##  Features
 
 *   **Neural Networks**: Each agent is powered by a feed-forward brain (`topology: 6-8-2`).
